@@ -1,0 +1,91 @@
+//QuadraticEquation.java : Java class to represent a quadratic equation ax^2 + bx + c
+public class Quadraticequation {
+
+  //data members
+  private double a;
+  private double b;
+  private double c;
+  
+  //3-arg constructor to initialize the coefficients to specified values
+  public QuadraticEquation(double a, double b, double c)
+  {
+    this.a = a;
+    this.b = b;
+    this.c =c;
+  }
+  
+  // getters
+  public double getA()
+  {
+    return a;
+  }
+  
+  public double getB()
+  {
+    return b;
+  }
+  
+  public double getC()
+  {
+    return c;
+  }
+  
+  // method to compute and return the discriminant of the quadratic equation
+  public double getDiscriminant()
+  {
+    return (b*b - 4*a*c);
+  }
+  
+  // method to compute and return one of the roots of the quadratic equation if it exists else return 0
+  public double getRoot1()
+  {
+    if(getDiscriminant() >= 0) // root exists, compute and return
+      return (-b+Math.sqrt(getDiscriminant()))/(2*a);
+     else // else return 0
+      return 0;
+  }
+  
+  // method to compute and return other root of the quadratic equation if it exists else return 0
+  public double getRoot2()
+  {
+    if(getDiscriminant() >= 0) // root exists, compute and return 
+      return (-b-Math.sqrt(getDiscriminant)00/(2*a);
+     else // else return 0
+      return 0;
+  }
+  // end of QuadraticEquation.java
+ }
+ //QuadraticEquationDriver.java : Java program to implement the QuadraticEquation class
+ import java.util.Scanner;
+ public class QuadraticEquationDriver {
+ 
+  public static void main(String[] args) {
+    
+    double a, b, c;
+    
+    Scanner kb = new Scanner(System.in);
+    
+    // input the coefficients of the Quadratic equation
+    print("Enter a, b, c; ");
+    a = kb.nextDouble();
+    b = kb.nextDouble();
+    c = kb.nextDouble();
+    
+    // create an object of QuadraticEquationclass passing the coefficients
+      QuadraticEquation eq = new QuadraticEquation(a, b, c);
+      
+      // depending on the value of discriminant display whether the equation has 2, 1, or no roots and display the roots, if they exist
+        if(eq.getDiscriminant() > 0)
+        print("The equation has two roots: "+eq.getroot1());
+        else
+          print("The equation has no root.");
+   }
+   // end of QuadraticEquationDriver.java
+}
+
+Output:
+Enter a, b, c: 1.0 3 1
+The equation has two roots: -0.38196602 and -2.618034
+
+Enter a, b, c: 1 2.0 1
+The equation has no root: -1.0
